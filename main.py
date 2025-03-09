@@ -14,8 +14,10 @@ for index, row in topics.iterrows():
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=row['Topic'], ln=1)
 
-    #line across page separating header from body
-    pdf.line(10,20,200,20)
+    #line across page separating header from body and
+    # then evenly space lines for writing like a notebook
+    for i in range (27):
+        pdf.line(10,20+(10*i),200,20+(10*i))
 
     pdf.ln(266)
 
@@ -30,7 +32,10 @@ for index, row in topics.iterrows():
     for i in range(row['Pages'] - 1):
         pdf.add_page()
 
-        #add empty space to get the footer placement
+        # evenly space lines across page for writing like a notebook
+        for j in range(29):
+            pdf.line(10, 10*j,200, 10*j)
+
         pdf.ln(278)
 
         #footer
