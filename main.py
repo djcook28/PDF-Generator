@@ -16,6 +16,7 @@ for index, row in topics.iterrows():
 
     #line across page separating header from body and
     # then evenly space lines for writing like a notebook
+    # alternative would be to set range(20, 290, 10) then replace 20+10*i with just i
     for i in range (27):
         pdf.line(10,20+(10*i),200,20+(10*i))
 
@@ -33,6 +34,7 @@ for index, row in topics.iterrows():
         pdf.add_page()
 
         # evenly space lines across page for writing like a notebook
+        # alternative would be to set range(10, 290, 10) then replace 10*j with just j
         for j in range(29):
             pdf.line(10, 10*j,200, 10*j)
 
